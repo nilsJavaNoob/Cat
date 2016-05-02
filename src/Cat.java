@@ -36,14 +36,14 @@ public class Cat
         count++;
     }
     //this consntructor for creating kittens only
-    private Cat(Double weight,Double minWeight, Double maxWeight)
-    {
-        this.weight =weight;
-        this.originWeight = weight;
-        this.minWeight = minWeight;
-        this.maxWeight = maxWeight;
-        count++;
-    }
+//    private Cat(Double weight,Double minWeight, Double maxWeight)
+//    {
+//        this.weight =weight;
+//        this.originWeight = weight;
+//        this.minWeight = minWeight;
+//        this.maxWeight = maxWeight;
+//        count++;
+//    }
        public static Cat getKitten()
        {
            Cat kitten = new Cat(getRandomDouble(100.0,100.0),100.0,200.0);
