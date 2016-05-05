@@ -35,18 +35,10 @@ public class Cat
         //}
         count++;
     }
-    //this consntructor for creating kittens only
-//    private Cat(Double weight,Double minWeight, Double maxWeight)
-//    {
-//        this.weight =weight;
-//        this.originWeight = weight;
-//        this.minWeight = minWeight;
-//        this.maxWeight = maxWeight;
-//        count++;
-//    }
+
        public static Cat getKitten()
        {
-           Cat kitten = new Cat(getRandomDouble(100.0,100.0),100.0,200.0);
+           Cat kitten = new Cat(200.0);
             return kitten;
        }
     //вместо заполнения экрана воплями кота,
@@ -60,7 +52,6 @@ public class Cat
                 //Вес уменьшен, теперь снова проверка( текущий вес кошки меньше минимального?)
                 if(weight < minWeight)
                 {
-                    count--;
                     System.out.println(" The  some cat said" + " <Meow> for "  + timesMeow + " times");
                 }
             }
@@ -69,34 +60,23 @@ public class Cat
                 CatIsNotAliveMessage();
             }
     }
-
-
-
     public void feed(Double amount)
     {
         if(setWeight(weight + amount))
         {
             foodWeight = foodWeight + amount;
-            if(weight > maxWeight)
-            {
-                count--;
-            }
         }
         else
         {
             CatIsNotAliveMessage();
         }
-
     }
 
     public void drink(Double amount)
     {
         if(setWeight(weight + amount))
         {
-            if(weight > maxWeight)
-            {
-                count--;
-            }
+            ;
         }
         else
         {
@@ -109,10 +89,6 @@ public class Cat
         if(setWeight(weight - ballast))
         {
             System.out.println(" Кто то из кошаков облегчился ))");
-            if(weight < minWeight)
-            {
-                count--;
-            }
         }
         else
         {
@@ -124,7 +100,6 @@ public class Cat
     {
         return weight;
     }
-
     //масса съеденной пищи
     public Double getFoodWeight()
     {
@@ -159,9 +134,14 @@ public class Cat
         if(isAlive())
         {
             this.weight = weight;
+            if(!isAlive())
+                count--;
             return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
     //================  Methods added by me ============
     private void CatIsNotAliveMessage() {
