@@ -8,6 +8,7 @@ public class Cat
     private static Integer count = 0;
     private Double foodWeight =0.0;
     private Integer timesMeow=0;
+    private boolean wasTryings = false;
 
     //Статический метод.
     public  static  Integer getCount()
@@ -24,13 +25,22 @@ public class Cat
     {
         minWeight = 100.0;
         maxWeight = 9000.0;
+        //Здесь мы разрешаем создание мёртвых кошек
+        if(weight < minWeight || weight > maxWeight)
+        {
+            deadCat = true;
+            this.weight = weight;
+            this.originWeight = weight;
+        }
+        else
+        {
+            this.weight = weight;
+            originWeight = weight;
+        }
+
             this.weight = weight;
             originWeight = weight;
             count++;
-        if (!isAlive())
-        {
-            deadCat = true;
-        }
     }
 
        public static Cat getKitten()
@@ -137,9 +147,16 @@ public class Cat
                 count--;
             return true;
         }
+           // это мёртвый кот
         else
         {
-            return false;
+            //мёртвый кот пытается менять вес, он уже пытался?
+            if(!wasTryings)
+            {
+                count--;
+                wasTryings = true;
+            }
+            return  false;
         }
     }
     //================  Methods added by me ============

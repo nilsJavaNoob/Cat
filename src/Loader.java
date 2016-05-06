@@ -4,6 +4,9 @@ public class Loader {
         Cat cat = new Cat();
         Cat deadCat = new Cat(15000.0);
         System.out.println("Count " + Cat.getCount());
+        cat.feed(15000.0);
+        System.out.println("Count " + Cat.getCount());
+        cat.meow();
         deadCat.meow();
         System.out.println("Count " + Cat.getCount() + "but his status is " + deadCat.getStatus());
 
