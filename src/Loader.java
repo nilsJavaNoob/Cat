@@ -8,7 +8,7 @@ public class Loader {
         System.out.println("Count " + Cat.getCount());
         cat.meow();
         deadCat.meow();
-        System.out.println("Count " + Cat.getCount() + "but his status is " + deadCat.getStatus());
+        System.out.println("Count " + Cat.getCount() + " and his status is " + deadCat.getStatus());
 
         /*
         Cat murzik = new Cat();

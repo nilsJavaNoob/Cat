@@ -25,17 +25,10 @@ public class Cat
     {
         minWeight = 100.0;
         maxWeight = 9000.0;
-        //Здесь мы разрешаем создание мёртвых кошек
+        //Здесь мы устанавливаем признак мёртвой кошки
         if(weight < minWeight || weight > maxWeight)
         {
             deadCat = true;
-            this.weight = weight;
-            this.originWeight = weight;
-        }
-        else
-        {
-            this.weight = weight;
-            originWeight = weight;
         }
 
             this.weight = weight;
@@ -145,6 +138,7 @@ public class Cat
             //still alive ?
             if(!isAlive())
                 count--;
+                wasTryings = true;
             return true;
         }
            // это мёртвый кот
