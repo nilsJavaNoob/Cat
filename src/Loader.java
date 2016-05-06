@@ -2,6 +2,12 @@ public class Loader {
     public static void main(String[] args)
     {
         Cat cat = new Cat();
+        Cat deadCat = new Cat(15000.0);
+        System.out.println("Count " + Cat.getCount());
+        deadCat.meow();
+        System.out.println("Count " + Cat.getCount() + "but his status is " + deadCat.getStatus());
+
+        /*
         Cat murzik = new Cat();
         Cat vaska = new Cat();
         Cat murka = new Cat();
@@ -144,6 +150,7 @@ public class Loader {
         System.out.println("zevsTwin is .." + zevsTwin.getStatus());
         System.out.println("kitten`s weight is .." + kitten.getWeight().intValue());
         System.out.println("kitten is .." + kitten.getStatus());
+*/
         System.out.println("Осталось кошек .... " + Cat.getCount());
     }//end main
 

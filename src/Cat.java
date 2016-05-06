@@ -1,5 +1,6 @@
 public class Cat
 {
+    private boolean deadCat = false;
     private Double originWeight;
     private Double weight;
     private Double minWeight;
@@ -23,17 +24,13 @@ public class Cat
     {
         minWeight = 100.0;
         maxWeight = 9000.0;
-        /* Проверку на вес не делаем - разрешаем создание мёртвых кошек
-        if(weight < minWeight || weight > maxWeight)
-        {
-            weight = getRandomDouble(1500.0, 3000.0);
-        }
-        else
-        {*/
             this.weight = weight;
             originWeight = weight;
-        //}
-        count++;
+            count++;
+        if (!isAlive())
+        {
+            deadCat = true;
+        }
     }
 
        public static Cat getKitten()
@@ -131,9 +128,11 @@ public class Cat
 
     private boolean setWeight(Double weight)
     {
+
         if(isAlive())
         {
             this.weight = weight;
+            //still alive ?
             if(!isAlive())
                 count--;
             return true;
@@ -155,13 +154,6 @@ public class Cat
     }
     public boolean isAlive()
     {
-        if ((weight < minWeight) || (weight > maxWeight))
-        {
-            return false;
-        }
-        else
-        {
-            return  true;
-        }
+        return !((weight < minWeight) || (weight > maxWeight));
     }
 }//end class
